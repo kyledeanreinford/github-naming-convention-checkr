@@ -12,5 +12,8 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
-      - name: Display Branch Name
-        run: echo "${{ github.repository }}"
+      - name: Check Repository Name
+        run: |
+          IFS='/' read -r username repository <<< ${{ github.repository }}
+          echo "$username"
+          echo "$repository"
