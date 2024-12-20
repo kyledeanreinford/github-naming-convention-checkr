@@ -1,4 +1,4 @@
-name: Check
+name: Valid repository name
 
 on:
   push:
@@ -14,8 +14,7 @@ jobs:
 
       - name: Check Repository Name
         run: |
-          IFS='/' read -r username repository <<< ${{ github.repository }}
-          if [[ "${repository}" != *"ai-academy-${username}-repository"* ]]; then
-            echo "Repository name "${repository}" is not allowed. Does not match "ai-academy-${username}-repository". Failing workflow."
+          if [[ "${{ github.repository }}" != "${{ github.repository_owner }}/ai-academy-${{ github.repository_owner }}-repository" ]]; then
+            echo "Repository name "${repository}" is not allowed. Please rename your repository to "ai-academy-
             exit 1
           fi
