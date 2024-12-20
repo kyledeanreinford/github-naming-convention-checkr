@@ -18,4 +18,4 @@ jobs:
           if [[ "a-project-name" == *"a-project-name"* ]]; then
             echo "Repository name is not allowed, failing workflow."
             exit 1
-  
+          fi
