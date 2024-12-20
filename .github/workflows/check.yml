@@ -15,7 +15,7 @@ jobs:
       - name: Check Repository Name
         run: |
           IFS='/' read -r username repository <<< ${{ github.repository }}
-          if [[ "a-project-name" == *"a-project-name"* ]]; then
-            echo "Repository name is not allowed, failing workflow."
+          if [[ "${repository}" != *"a-project-name"* ]]; then
+            echo "Repository name "${repository}" is not allowed, failing workflow."
             exit 1
           fi
