@@ -14,7 +14,7 @@ jobs:
 
       - name: Check Repository Name
         run: |
-          if [[ "${{ github.repository }}" != "${{ github.repository_owner }}/ai-academy-${{ github.repository_owner }}-repository" ]]; then
-            echo "Repository name is not allowed. Please rename your repository to "`ai-academy-${{ github.repository_owner }}-repository`"."
+          if [[ ! "${{ github.repository }}" ~= "BTS-ABT\/ai-academy-[a-z-]*-repository" ]]; then
+            echo "Repository name is not allowed. Please rename your repository to "ai-academy-*team project name*-repository"."
             exit 1
           fi
